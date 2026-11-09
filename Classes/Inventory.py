@@ -1,24 +1,22 @@
-from typing import Protocol
-class ProductProtocol(Protocol):
-    name: str
-    total_value: int | float
-
+from .Product import Product
+from typing import Self
 class Inventory:
     def __init__(self) -> None:
-        self.__products: list[ProductProtocol] = []
+        self.__products: list[Product] = []
 
-    def add(self, product: ProductProtocol) -> None:
+    def add(self, product: Product) -> Self:
         if self.find(name=product.name) is not None:
             raise ValueError(f"{product.name} already exists")
         self.__products.append(product)
+        return self
 
-    def find(self, name: str) -> ProductProtocol | None:
+    def find(self, name: str) -> Product | None:
         for product in self.__products:
             if product.name == name:
                 return product
         return None
 
-    def by_value(self) -> list[ProductProtocol]:
+    def by_value(self) -> list[Product]:
         return sorted(self.__products, key=lambda p: p.total_value, reverse=True)
 
     @property

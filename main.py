@@ -1,5 +1,7 @@
 from Classes.Product import Product
 from Classes.Inventory import Inventory
+from typing import Self
+
 
 shop = Inventory()
 shop.add(Product("Pen", 5, 10))
