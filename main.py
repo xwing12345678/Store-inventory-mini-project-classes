@@ -1,4 +1,5 @@
 from Classes.Product import Product
+from Classes.Inventory import Inventory
 
 shop = Inventory()
 shop.add(Product("Pen", 5, 10))

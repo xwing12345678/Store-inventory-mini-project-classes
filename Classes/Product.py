@@ -1,6 +1,4 @@
 
-
-
 class Product:
     total_books:int = 0
     def __init__(self,name:str,price:int|float,quantity:int=0)->None|ValueError: # pyright: ignore[reportGeneralTypeIssues]
